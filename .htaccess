@@ -1,0 +1,14 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /wafaaamro/
+
+  RewriteRule ^media/questions/([A-Za-z0-9._-]+)$ api/uploads/questions/$1 [L]
+  RewriteRule ^api/index\.php$ - [L]
+  RewriteRule ^api/ - [L]
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+  RewriteRule ^ index.html [L]
+</IfModule>
